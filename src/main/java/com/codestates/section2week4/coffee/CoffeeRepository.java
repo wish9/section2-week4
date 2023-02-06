@@ -1,4 +1,4 @@
-package com.codestates.section2week4.Coffee;
+package com.codestates.section2week4.coffee;
 
 import java.util.HashMap;
 import java.util.Map;
