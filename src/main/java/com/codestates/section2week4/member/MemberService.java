@@ -1,8 +1,12 @@
 package com.codestates.section2week4.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberService {
     private final MemberRepository memberRepository;
-
+    @Autowired  // 의존관계 자동 주입
     public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
