@@ -1,12 +1,16 @@
 package com.codestates.section2week4.coffee;
 
 import com.codestates.section2week4.DependencyConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class CoffeeTest {
     public static void main(String[] args) {
+//        DependencyConfig dependencyConfig = new DependencyConfig();
+//        CoffeeService coffeeService = dependencyConfig.coffeeService();  // 기존에 DependencyConfig를 직접 가져와서 주입하는 방식에서
 
-        DependencyConfig dependencyConfig = new DependencyConfig();
-        CoffeeService coffeeService = dependencyConfig.coffeeService();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(DependencyConfig.class); // 스프링 컨테이너에 등록된 빈을 가져오는 방식으로 변경
+        CoffeeService coffeeService = ac.getBean("coffeeService", CoffeeService.class);
 
         Coffee coffee = new Coffee(0L, "바닐라 라떼", "vanilla latte", 5000);
         coffeeService.createCoffee(coffee);
